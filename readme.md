@@ -31,6 +31,12 @@ W.I.P.
 
 **Back-end:**
 
+<!-- 
+npm i prisma -D //instalar como dependência de desenvolvimento
+npx prisma init -h //lista os comandos disponíveis com o init
+npx prisma init --datasource-provider SQLite
+ -->
+
 - NodeJS
 - Prisma
 
