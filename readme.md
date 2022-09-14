@@ -32,6 +32,7 @@ W.I.P.
 **Back-end:**
 
 - NodeJS
+- Prisma
 
 ### Entities
 
