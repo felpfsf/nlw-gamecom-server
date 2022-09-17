@@ -8,10 +8,14 @@ const app = express()
 
 app.use(express.json())
 
-app.use(cors())
+app.use(
+  cors({
+    origin: '*'
+  })
+)
 
 const prisma = new PrismaClient({
-  log: ['query']
+  // log: ['query']
 })
 
 // Game list with ads count
@@ -36,6 +40,9 @@ app.post('/games/:id/ads', async (request, response) => {
   const gameId = request.params.id
 
   const body: any = request.body
+  // console.log(body)
+  // console.log(body.hourStart, body.hourEnd)
+  // console.log(typeof body.hourStart, typeof body.hourEnd)
 
   const ad = await prisma.ad.create({
     data: {
@@ -45,7 +52,7 @@ app.post('/games/:id/ads', async (request, response) => {
       discord: body.discord,
       weekDays: body.weekDays.join(','),
       hourStart: convertHourStringToMinutes(body.hourStart),
-      hourEnd: convertHourStringToMinutes(body.hoursEnd),
+      hourEnd: convertHourStringToMinutes(body.hourEnd),
       useVoiceChannel: body.useVoiceChannel
     }
   })

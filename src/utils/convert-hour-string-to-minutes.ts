@@ -1,9 +1,11 @@
 // 18:00 -> ["18", "00"] -> [18, 00]
 
 export function convertHourStringToMinutes(hourString: string) {
-  const [hours, min] = hourString.split(':').map(Number)
+  const [hours, minutes] = hourString.split(':').map(Number)
 
-  const minAmount = hours * 60 + min
+  const minutesAmount = hours * 60 + minutes
 
-  return minAmount
+  // console.log(minutesAmount, typeof minutesAmount)
+
+  return minutesAmount
 }
